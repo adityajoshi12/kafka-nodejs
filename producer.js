@@ -54,8 +54,16 @@ function getFlowValues() {
   return data
 }
 const run = async () => {
-  // let data = getTemperatureValues();
-  let data = getHumidityValues()
+  let rnd = Math.random();
+  let data;
+  if (0 <= rnd < 0.20)
+    data = getFlowValues()
+  else if (0.20 <= rnd < 0.55)
+    data = getTemperatureValues()
+  else if (0.55 <= rnd < 0.70)
+    data = getHumidityValues()
+  else data = getSoundValues()
+
   const producer = kafka.producer();
   await producer.connect();
   let result = await producer.send({
