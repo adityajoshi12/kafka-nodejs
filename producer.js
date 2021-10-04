@@ -1,11 +1,14 @@
+require("dotenv").config();
 const { Kafka } = require("kafkajs");
-const deviceNames = ['SBS01', 'SBS02', 'SBS03', 'SBS04', 'SBS05', 'SBS06']
+const deviceNames = ['SBS01', 'SBS02', 'SBS03', 'SBS04', 'SBS05', 'SBS06'];
+const kafka_address = process.env.EXT_IP || "localhost";
 const kafka = new Kafka({
   clientId: "my-app",
   brokers: [
-    "localhost:29092"
+    `${kafka_address}:29092`
   ]
 });
+console.log(kafka_address);
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
