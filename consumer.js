@@ -4,12 +4,11 @@ const kafka_address = process.env.EXT_IP || "localhost";
 const kafka = new Kafka({
   clientId: "my-app",
   brokers: [
-    `${kafka_address}:29092`
+    `${kafka_address}:29093`
   ]
 });
 console.log(kafka_address);
 const run = async () => {
-  // const kafka = await getKafka();
 
   const consumer = kafka.consumer({ groupId: "test-group" });
 
