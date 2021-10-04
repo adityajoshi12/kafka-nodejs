@@ -1,13 +1,13 @@
+require("dotenv").config();
 const { Kafka } = require("kafkajs");
-const axios = require("axios").default;
-
-
+const kafka_address = process.env.EXT_IP || "localhost";
 const kafka = new Kafka({
   clientId: "my-app",
-  brokers: ["localhost:29092"]
-
+  brokers: [
+    `${kafka_address}:29092`
+  ]
 });
-
+console.log(kafka_address);
 const run = async () => {
   // const kafka = await getKafka();
 
