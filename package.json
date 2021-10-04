@@ -10,8 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.1",
-    "kafkajs": "^1.15.0",
-    "node-fetch": "^2.6.1"
+    "dotenv": "^10.0.0",
+    "kafkajs": "^1.15.0"
   }
 }
